@@ -1,0 +1,109 @@
+\documentclass{article}
+ \usepackage{graphicx}
+ \usepackage{subcaption}
+ \usepackage{amsmath}
+ 
+ \title{Separable and Entangled}
+ \date{15-05-2020}
+ \author{Bavana Varun Satya Raj}
+ \begin{document}
+  \maketitle
+  \section*{Theory}
+  Consider the state $|\psi>=\frac{|00>-|11>+p(|01>|-10>)}{\sqrt{2+2p^2}}$\\
+  for p=0 this is the bell state $|\phi^->=\frac{|00>-|11>}{\sqrt{2}}$\\
+  for p=1 this is the separable state $|\psi>=\frac{|0>-|1>)}{\sqrt{2}}\otimes\frac{|0>+|1>)}{\sqrt{2}}$\\
+  Hence as we vary p from 0 to 1, we go from an entangled state to a	     	separable state.\\\\
+  We know E$_{ab}$ for $|\psi^->$ is -cos($\theta$).(Considering we have orthonormal measurement Basis for Alice and Bob each)\\
+  
+  For, $|\phi^->$, Consider two measurements $\bar{a}$=(a$_x$,a$_y$,a$_z$) and $\bar{b}$=(b$_x$,b$_y$,b$_z$), where $|\bar{a}|$=1 and $|\bar{b}|$=1. So, $\bar{\sigma}$.a=\\
+  
+ \centerline{ $\begin{bmatrix}
+  a_z & a_x-ia_y\\
+  a_x+ia_y & -a_z
+ \end{bmatrix}$}
+ 
+ and $\bar{\sigma}$.b=\\
+ 
+  \centerline{ $\begin{bmatrix}
+  b_z & b_x-ib_y\\
+  b_x+ib_y & -b_z
+ \end{bmatrix}$}
+
+ So,\\ 
+ The Expectation value of $\bar{\sigma_a}\otimes\bar{\sigma_b}=<\phi^-|\bar{\sigma_a}\otimes\bar{\sigma_b}|\phi^->$\\\\
+ where,$\bar{\sigma_a}\otimes\bar{\sigma_b}$=\\
+ 
+ \centerline{ $\begin{bmatrix}
+  a_zb_z & a_z(b_x-ib_y) & b_z(a_x-ia_y) & (a_x-ia_y)(b_x-ib_y) \\
+  a_z(b_x+ib_y) & -a_zb_z & (a_x-ia_y)(b_x+ib_y) & -b_z(a_x-ia_y)\\ b_z(a_x+ia_y) & (a_x+ia_y)(b_x-ib_y) & -a_zb_z & -a_z(b_x-ib_y)\\
+  (a_x+ia_y)(b_x+ib_y) & -b_z(a_x+ia_y) & -a_z(b_x+ib_y) & a_zb_z
+ \end{bmatrix}$}
+ .\newpage
+ $\bar{\sigma_a}\otimes\bar{\sigma_b}|\phi^->$=\\
+ 
+  \centerline{ $\begin{bmatrix}
+  a_zb_z - (a_x-ia_y)(b_x+ib_y)\\
+  a_z(b_x+ib_y) +b_z(a_x-ia_y)\\
+  b_z(a_x+ia_y)+a_z(b_x-ib_y)\\
+  (a_x+ia_y)(b_x+ib_y)-a_zb_z
+  \end{bmatrix}$}
+  .\\\\
+  $<\phi^-|\bar{\sigma_a}\otimes\bar{\sigma_b}|\phi^->$=\\
+  	\centerline{$a_xb_x-(a_x-ia_y)(b_x+ib_y)-(a_x+ia_y)(b_x+ib_y)+a_zb_z$}
+  	.\\
+  	\centerline{$=a_yb_y+a_zb_z-a_xb_x$}
+  	
+  So,\\
+    \centerline{$<\phi^-|\bar{\sigma_a}\otimes\bar{\sigma_b}|\phi^->=a_yb_y+a_zb_z-a_xb_x$}
+    .\\
+    
+   Therefore,\\
+   \begin{align*}
+    |\psi>=\frac{|00>-|11>+p(|01>-|10>)}{\sqrt{2+2p^2}}\\
+    |\psi>=\frac{\sqrt{2}|\phi^->+\sqrt{2}p(|\psi^->)}{\sqrt{2+2p^2}}\\
+    |\psi>=\frac{|\phi^->+p(|\psi^->)}{\sqrt{1+p^2}}\\
+    <\psi|\bar{\sigma_a}\otimes\bar{\sigma_b}|\psi>=\frac{-p^2cos(\theta)+a_zb_z+a_yb_y-a_xb_x}{1+p^2}\\
+   \end{align*}
+    Without loss of generality, we can assume, $\bar{b_1}=(b_1,0,0),       	\bar{b_2}=(0,b_2,0), \bar{b_3}=(0,0,b_3)$ and $\bar{a_1}=(a_{1x},a_{1y},a_{1z}),\bar{a_2}=(a_{2x},a_{2y},a_{2z}),\bar{a_3}=(a_{3x},a_{3y},a_{3z})$
+    
+   \begin{align*}
+   cos(\theta_{11})=\bar{a_1}.\bar{b_1}=a_{1x}b_1\\
+   cos(\theta_{12})=a_{1x}b_2\\
+   cos(\theta_{13})=a_{1x}b_3\\
+   cos(\theta_{21})=a_{2x}b_1\\
+   cos(\theta_{22})=a_{2x}b_2\\
+   cos(\theta_{23})=a_{2x}b_3\\
+   cos(\theta_{31})=a_{3x}b_1\\
+   cos(\theta_{32})=a_{3x}b_2\\
+   cos(\theta_{33})=a_{3x}b_3\\
+   \end{align*}
+   
+   \begin{align*}
+   E_{11}=\frac{cos(\theta_{11})(-1-p^2)}{1+p^2}\\
+   E_{12}=\frac{cos(\theta_{12})(1-p^2)}{1+p^2}\\
+   E_{13}=\frac{cos(\theta_{13})(1-p^2)}{1+p^2}\\
+   E_{21}=\frac{cos(\theta_{21})(-1-p^2)}{1+p^2}\\
+   E_{22}=\frac{cos(\theta_{22})(1-p^2)}{1+p^2}\\
+   E_{23}=\frac{cos(\theta_{23})(1-p^2)}{1+p^2}\\
+   E_{31}=\frac{cos(\theta_{31})(-1-p^2)}{1+p^2}\\
+   E_{32}=\frac{cos(\theta_{32})(1-p^2)}{1+p^2}\\
+   E_{32}=\frac{cos(\theta_{33})(1-p^2)}{1+p^2}\\
+   \end{align*}
+   
+   \begin{align*}
+	|E_{11}+E_{12}+E_{21}+E_{22}|
+	=\frac{|-cos(\theta_{11})(1+p^2)+cos(\theta_{12})(1-p^2)-cos(\theta_{21})(1+p^2)+cos(\theta_{22})(1-p^2)|}{1+p^2}
+   \end{align*}
+   When p=0(Entangled State), we get our usual CHSH values\\
+   
+   .\\
+   When p=1(Separable State), we get $|-\cos(\theta_{11})-\cos(\theta_{21})|$ which has a 
+   maximum value 2.\\
+   .\\\\
+   Therefore Bell inequality is not violated for a Separable State.
+  
+  
+ 
+ 
+ 
+ \end{document}

@@ -1,0 +1,85 @@
+from scipy.stats import ortho_group
+import numpy as np
+import matplotlib.pyplot as plt
+
+data=[]
+prob=[]
+k=[]
+t1=2
+
+for i in range(83):
+    k.append(round(t1,2))
+    t1=t1+0.01
+
+for l in range(10000):
+    x=ortho_group.rvs(3)
+    y=ortho_group.rvs(3)
+    z=ortho_group.rvs(3)
+    bell=[]
+
+    a1=x[0]
+    a2=x[1]
+    a3=x[2]
+
+    b1=y[0]
+    b2=y[1]
+    b3=y[2]
+
+    def d(x,y):
+        return -np.dot(x,y)
+
+    bell.append(abs(d(a1,b1)+d(a1,b2)+d(a2,b1)-d(a2,b2)))
+    bell.append(abs(d(a1,b1)+d(a1,b2)-d(a2,b1)+d(a2,b2)))
+    bell.append(abs(d(a1,b1)-d(a1,b2)+d(a2,b1)+d(a2,b2)))
+    bell.append(abs(-d(a1,b1)+d(a1,b2)+d(a2,b1)+d(a2,b2)))
+
+    bell.append(abs(+d(a1,b1)+d(a1,b3)+d(a2,b1)-d(a2,b3)))
+    bell.append(abs(+d(a1,b1)+d(a1,b3)-d(a2,b1)+d(a2,b3)))
+    bell.append(abs(+d(a1,b1)-d(a1,b3)+d(a2,b1)+d(a2,b3)))
+    bell.append(abs(-d(a1,b1)+d(a1,b3)+d(a2,b1)+d(a2,b3)))
+
+    bell.append(abs(+d(a1,b2)+d(a1,b3)+d(a2,b2)-d(a2,b3)))
+    bell.append(abs(+d(a1,b2)+d(a1,b3)-d(a2,b2)+d(a2,b3)))
+    bell.append(abs(+d(a1,b2)-d(a1,b3)+d(a2,b2)+d(a2,b3)))
+    bell.append(abs(-d(a1,b2)+d(a1,b3)+d(a2,b2)+d(a2,b3)))
+
+    bell.append(abs(+d(a1,b1)+d(a1,b2)+d(a3,b1)-d(a3,b2)))
+    bell.append(abs(+d(a1,b1)+d(a1,b2)-d(a3,b1)+d(a3,b2)))
+    bell.append(abs(+d(a1,b1)-d(a1,b2)+d(a3,b1)+d(a3,b2)))
+    bell.append(abs(-d(a1,b1)+d(a1,b2)+d(a3,b1)+d(a3,b2)))
+
+    bell.append(abs(+d(a1,b1)+d(a1,b3)+d(a3,b1)-d(a3,b3)))
+    bell.append(abs(+d(a1,b1)+d(a1,b3)-d(a3,b1)+d(a3,b3)))
+    bell.append(abs(+d(a1,b1)-d(a1,b3)+d(a3,b1)+d(a3,b3)))
+    bell.append(abs(-d(a1,b1)+d(a1,b3)+d(a3,b1)+d(a3,b3)))
+
+    bell.append(abs(+d(a1,b2)+d(a1,b3)+d(a3,b2)-d(a3,b3)))
+    bell.append(abs(+d(a1,b2)+d(a1,b3)-d(a3,b2)+d(a3,b3)))
+    bell.append(abs(+d(a1,b2)-d(a1,b3)+d(a3,b2)+d(a3,b3)))
+    bell.append(abs(-d(a1,b2)+d(a1,b3)+d(a3,b2)+d(a3,b3)))
+
+    bell.append(abs(+d(a2,b1)+d(a2,b2)+d(a3,b1)-d(a3,b2)))
+    bell.append(abs(+d(a2,b1)+d(a2,b2)-d(a3,b1)+d(a3,b2)))
+    bell.append(abs(+d(a2,b1)-d(a2,b2)+d(a3,b1)+d(a3,b2)))
+    bell.append(abs(-d(a2,b1)+d(a2,b2)+d(a3,b1)+d(a3,b2)))
+
+    bell.append(abs(+d(a2,b1)+d(a2,b3)+d(a3,b1)-d(a3,b3)))
+    bell.append(abs(+d(a2,b1)+d(a2,b2)-d(a3,b1)+d(a3,b2)))
+    bell.append(abs(+d(a2,b1)-d(a2,b2)+d(a3,b1)+d(a3,b2)))
+    bell.append(abs(-d(a2,b1)+d(a2,b2)+d(a3,b1)+d(a3,b2)))
+
+    bell.append(abs(+d(a2,b2)+d(a2,b3)+d(a3,b2)-d(a3,b3)))
+    bell.append(abs(+d(a2,b2)+d(a2,b3)-d(a3,b2)+d(a3,b3)))
+    bell.append(abs(+d(a2,b2)-d(a2,b3)+d(a3,b2)+d(a3,b3)))
+    bell.append(abs(-d(a2,b2)+d(a2,b3)+d(a3,b2)+d(a3,b3)))
+
+    for i in bell:
+        if i>2:
+            data.append(round(i,2))
+
+for i in k:
+    temp=data.count(i)
+    prob.append(temp)
+
+plt.plot(k,prob)
+plt.show()
